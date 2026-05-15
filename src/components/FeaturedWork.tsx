@@ -40,7 +40,7 @@ export default function FeaturedWork() {
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.3 } }
   };
 
   return (
@@ -49,7 +49,7 @@ export default function FeaturedWork() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ type: "spring", stiffness: 250, damping: 30 }}
         className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
       >
         <div className="max-w-2xl">

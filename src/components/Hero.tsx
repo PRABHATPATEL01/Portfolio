@@ -149,7 +149,7 @@ export default function Hero() {
                   duration: 4 + Math.random() * 2,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  x: { type: "spring", stiffness: 40, damping: 20 },
+                  x: { type: "spring", stiffness: 200, damping: 25 },
                 }}
                 style={{ top: "50%", left: "50%", margin: "-20px 0 0 -60px" }}
                 className="absolute hidden lg:flex backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border text-sm font-bold cursor-grab z-0 whitespace-nowrap bg-white/90 border-outline-variant/30 text-primary"
@@ -186,7 +186,7 @@ export default function Hero() {
                 height: device === "iphone" ? 740 : 780,
                 borderRadius: device === "iphone" ? 54 : 32
               }}
-              transition={{ type: "spring", stiffness: 60, damping: 15 }}
+              transition={{ type: "spring", stiffness: 250, damping: 30 }}
               className="border-[2px] border-white/60 bg-black relative overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(255,255,255,0.1)] flex flex-col"
             >
                {/* Phone Wallpaper */}

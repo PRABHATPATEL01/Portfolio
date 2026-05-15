@@ -13,7 +13,7 @@ export default function Expertise() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
   };
 
   return (
@@ -22,7 +22,7 @@ export default function Expertise() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
         className="mb-16"
       >
         <div className="text-primary font-bold text-xs tracking-widest flex items-center gap-2 mb-4 uppercase">
