@@ -62,7 +62,7 @@ export default function Expertise() {
                 key={idx} 
                 variants={itemVariants}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="card-level-1 p-6 flex flex-col gap-3 group cursor-default"
+                className="apple-glass p-6 flex flex-col gap-3 group cursor-default"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                   {item.icon}
@@ -123,7 +123,7 @@ export default function Expertise() {
         <div className="flex items-center gap-3 mb-8 text-on-surface-variant font-display font-bold text-xl">
           <span className="text-primary">🎓</span> Education
         </div>
-        <div className="card-level-1 p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-xl transition-all hover:scale-[1.01]">
+        <div className="apple-glass p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-xl transition-all hover:scale-[1.01]">
           <div className="flex gap-6 items-start">
             <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl shrink-0">
               📚
@@ -133,11 +133,12 @@ export default function Expertise() {
               <p className="text-on-surface-variant mb-4 font-medium">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</p>
               <div className="flex flex-wrap gap-2">
                 <span className="bg-primary/5 text-primary text-xs px-4 py-2 rounded-full font-bold border border-primary/10">CGPA: 8.2 / 10.0</span>
+                <span className="bg-white/40 text-on-surface-variant text-[10px] px-3 py-1.5 rounded-full font-bold">2020 — 2024</span>
               </div>
             </div>
           </div>
           <div className="bg-white/60 backdrop-blur-sm text-on-surface-variant px-6 py-3 rounded-2xl font-bold text-sm shrink-0 whitespace-nowrap self-start md:self-auto border border-white shadow-sm">
-            2020 — 2024
+             Graduated July 2024
           </div>
         </div>
       </motion.div>

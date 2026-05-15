@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Link from 'next/link';
 
 const appBlocks = [
   // Widgets (Medium size)
@@ -90,7 +91,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="px-6 md:px-10 lg:px-20 py-20 flex flex-col items-center overflow-hidden text-on-surface" ref={containerRef}>
+    <section id="home" className="px-6 md:px-10 lg:px-20 py-20 flex flex-col items-center overflow-hidden text-on-surface scroll-mt-24" ref={containerRef}>
       <div className="flex flex-col lg:flex-row gap-16 items-center w-full max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="flex-1 flex flex-col gap-6 items-start z-10">
@@ -101,16 +102,16 @@ export default function Hero() {
             Architecting <br className="hidden md:block" /> <span className="text-primary">Scalable Apps</span> &<br className="hidden md:block" />Revenue Engines.
           </h1>
           <p className="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed mt-2">
-            Performance-driven iOS Developer specializing in Rapid App Scalability and Revenue Optimization. I architect StoreKit 2 IAP systems and Network-Adaptive Ad frameworks, having independently managed and deployed a portfolio of 10+ live applications.
+            Performance-driven iOS Developer specializing in Rapid App Scalability and Revenue Optimization. Expert in **StoreKit 2**, **AdMob**, and **Modular Architecture**, having deployed a portfolio of 10+ live production applications.
           </p>
           
           <div className="flex flex-row gap-4 mt-4 w-full md:w-auto">
-            <a href="#projects" className="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-bold transition-all shadow-subtle flex items-center justify-center flex-1 md:flex-none">
+            <Link href="#projects" className="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-bold transition-all shadow-subtle flex items-center justify-center flex-1 md:flex-none cursor-pointer">
               View Projects <span className="ml-2">→</span>
-            </a>
-            <a href="#contact" className="bg-surface border border-outline-variant text-on-surface hover:bg-surface-container px-8 py-4 rounded-xl font-bold transition-all flex-1 md:flex-none flex items-center justify-center">
+            </Link>
+            <Link href="#contact" className="bg-white/40 backdrop-blur-md border border-white/60 text-on-surface hover:bg-white/60 px-8 py-4 rounded-xl font-bold transition-all flex-1 md:flex-none flex items-center justify-center cursor-pointer">
               Contact Me
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center gap-4 mt-8">
@@ -231,9 +232,17 @@ export default function Hero() {
                                <h4 className="text-white font-bold text-sm leading-tight">Today's Hits</h4>
                                <p className="text-white/60 text-[10px]">Apple Music Hits</p>
                             </div>
-                            <button className="bg-white/90 py-1.5 rounded-full text-black text-[10px] font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform">
+                             <button 
+                               onClick={(e) => {
+                                 e.stopPropagation();
+                                 const target = e.currentTarget;
+                                 target.innerText = "Playing...";
+                                 setTimeout(() => target.innerText = "▶ Play", 2000);
+                               }}
+                               className="bg-white/90 py-1.5 rounded-full text-black text-[10px] font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform cursor-pointer"
+                             >
                                <span>▶</span> Play
-                            </button>
+                             </button>
                          </motion.div>
                        );
                      }

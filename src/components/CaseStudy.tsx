@@ -40,7 +40,7 @@ export default function CaseStudy() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="card-level-1 p-8 md:p-12 mb-16 relative overflow-hidden group"
+        className="apple-glass p-8 md:p-12 mb-16 relative overflow-hidden group"
       >
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -48,15 +48,18 @@ export default function CaseStudy() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2">
             <h3 className="font-display text-3xl font-bold text-on-surface mb-6">The Challenge</h3>
+            <p className="text-on-surface-variant leading-relaxed mb-6 italic">
+              "Deploying and maintaining 10+ unique applications required a scalable approach that bypassed redundant development cycles."
+            </p>
             <p className="text-on-surface-variant leading-relaxed mb-6">
-              Deploying and maintaining 10+ unique applications required a scalable approach that bypassed redundant development cycles while allowing for deep individual branding and features.
+              I solely managed the modular transformation of core codebases, engineering environment-based configurations that automated management of test/live ads, reducing deployment errors to zero.
             </p>
             <div className="flex flex-col gap-4">
               {[
-                "Centralized Core Framework",
-                "Dynamic Asset Injection",
-                "Automated Build Pipelines",
-                "Adaptive UI Theming"
+                "Environment-Based Configs",
+                "Automated AdMob Switching",
+                "Modular UI Theming Engine",
+                "Scalable Data Models"
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 font-bold text-on-surface">
                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs">✓</div>
@@ -82,11 +85,11 @@ export default function CaseStudy() {
                       <div className="flex items-center gap-4">
                          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white text-xl">🏛️</div>
                          <div>
-                            <div className="text-xs font-bold text-primary">Core Library</div>
+                            <div className="text-xs font-bold text-primary">LYTBLB Core</div>
                             <div className="text-[10px] text-primary/60">Logic & Networking</div>
                          </div>
                       </div>
-                      <div className="text-[10px] font-bold text-primary">STABLE</div>
+                      <div className="text-[10px] font-bold text-primary">SCALABLE</div>
                    </div>
 
                    <div className="grid grid-cols-2 gap-4">
@@ -96,13 +99,8 @@ export default function CaseStudy() {
                       </div>
                       <div className="p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/20 flex flex-col items-center text-center gap-2">
                          <div className="text-2xl">⚡</div>
-                         <div className="text-[10px] font-bold text-emerald-600 uppercase">SwiftData</div>
+                         <div className="text-[10px] font-bold text-emerald-600 uppercase">Revenue SDK</div>
                       </div>
-                   </div>
-
-                   <div className="p-4 bg-white/60 rounded-2xl border border-white/80 flex items-center justify-center gap-3">
-                      <div className="animate-spin h-4 w-4 border-2 border-primary/30 border-t-primary rounded-full" />
-                      <div className="text-[10px] font-bold text-on-surface-variant">Synchronizing Cloud Assets...</div>
                    </div>
                 </div>
              </div>
@@ -119,17 +117,17 @@ export default function CaseStudy() {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {[
-          { label: "Efficiency", value: "85%", desc: "Reduction in code duplication across apps." },
-          { label: "Revenue Growth", value: "2.4x", desc: "Increase in average IAP conversion rates." },
-          { label: "Stability", value: "99.9%", desc: "Crash-free sessions across all deployments." }
+          { label: "Deployment", value: "0 Errors", desc: "Automated environment switching eliminated manual mistakes." },
+          { label: "Performance", value: "99.9%", desc: "Crash-free sessions across all 10+ live deployments." },
+          { label: "Role", value: "SDE II", desc: "Software Engineer Level 2 (iOS) at LYTBLB Technology." }
         ].map((stat, idx) => (
           <motion.div 
             key={idx} 
             variants={itemVariants}
-            className="card-level-1 p-8 text-center flex flex-col items-center"
+            className="apple-glass p-8 text-center flex flex-col items-center"
           >
             <div className="text-xs font-bold text-primary tracking-widest uppercase mb-2">{stat.label}</div>
-            <div className="text-4xl font-display font-black text-on-surface mb-2">{stat.value}</div>
+            <div className="text-3xl font-display font-black text-on-surface mb-2">{stat.value}</div>
             <p className="text-on-surface-variant text-sm leading-relaxed">{stat.desc}</p>
           </motion.div>
         ))}
