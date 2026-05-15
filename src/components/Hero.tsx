@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import Link from 'next/link';
+
 
 const appBlocks = [
   // Widgets (Medium size)
@@ -102,16 +102,16 @@ export default function Hero() {
             Architecting <br className="hidden md:block" /> <span className="text-primary">Scalable Apps</span> &<br className="hidden md:block" />Revenue Engines.
           </h1>
           <p className="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed mt-2">
-            Performance-driven iOS Developer specializing in Rapid App Scalability and Revenue Optimization. Expert in **StoreKit 2**, **AdMob**, and **Modular Architecture**, having deployed a portfolio of 10+ live production applications.
+            Performance-driven iOS Developer specializing in Rapid App Scalability and Revenue Optimization. Expert in <strong>StoreKit 2</strong>, <strong>AdMob</strong>, and <strong>Modular Architecture</strong>, having deployed a portfolio of 10+ live production applications.
           </p>
           
           <div className="flex flex-row gap-4 mt-4 w-full md:w-auto">
-            <Link href="#projects" className="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-bold transition-all shadow-subtle flex items-center justify-center flex-1 md:flex-none cursor-pointer">
+            <a href="#projects" className="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-bold transition-all shadow-subtle flex items-center justify-center flex-1 md:flex-none cursor-pointer">
               View Projects <span className="ml-2">→</span>
-            </Link>
-            <Link href="#contact" className="bg-white/40 backdrop-blur-md border border-white/60 text-on-surface hover:bg-white/60 px-8 py-4 rounded-xl font-bold transition-all flex-1 md:flex-none flex items-center justify-center cursor-pointer">
+            </a>
+            <a href="#contact" className="bg-white/40 backdrop-blur-md border border-white/60 text-on-surface hover:bg-white/60 px-8 py-4 rounded-xl font-bold transition-all flex-1 md:flex-none flex items-center justify-center cursor-pointer">
               Contact Me
-            </Link>
+            </a>
           </div>
 
           <div className="flex items-center gap-4 mt-8">

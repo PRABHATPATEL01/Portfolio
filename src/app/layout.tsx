@@ -33,9 +33,9 @@ export default function RootLayout({
         </div>
         
         {/* Global Noise Texture */}
-        <div className="bg-noise"></div>
+        <div className="bg-noise z-0"></div>
 
-        <div className="relative z-0">
+        <div className="relative z-10">
           {children}
         </div>
       </body>
