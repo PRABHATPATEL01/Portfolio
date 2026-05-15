@@ -27,9 +27,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-surface text-on-surface font-body antialiased relative overflow-x-hidden">
         {/* Animated Background Blobs */}
         <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-[#6366F1]/20 blur-[120px] animate-blob-1 mix-blend-multiply"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-[#A855F7]/15 blur-[150px] animate-blob-2 mix-blend-multiply"></div>
-          <div className="absolute top-[30%] right-[-5%] w-[50%] h-[50%] rounded-full bg-[#EC4899]/10 blur-[130px] animate-blob-3 mix-blend-multiply"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-[#4F46E5]/30 blur-[120px] animate-blob-1 mix-blend-multiply"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-[#D946EF]/20 blur-[150px] animate-blob-2 mix-blend-multiply"></div>
+          <div className="absolute top-[30%] right-[-5%] w-[50%] h-[50%] rounded-full bg-[#06B6D4]/15 blur-[130px] animate-blob-3 mix-blend-multiply"></div>
         </div>
         
         {/* Global Noise Texture */}
