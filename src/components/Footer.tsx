@@ -1,3 +1,7 @@
+"use client";
+
+import { scrollToSection } from "@/utils/scroll";
+
 export default function Footer() {
   return (
     <footer id="contact" className="px-6 md:px-10 lg:px-20 py-16 bg-white/20 backdrop-blur-xl border-t border-white/20 mt-20">
@@ -12,7 +16,12 @@ export default function Footer() {
         <div className="flex flex-wrap justify-center gap-8 text-sm font-bold text-on-surface-variant">
           <a href="mailto:prabhatpatel301@gmail.com" className="bg-white/40 px-6 py-3 rounded-2xl border border-white/60 hover:bg-white/60 transition-all shadow-sm">Email Me</a>
           <a href="https://linkedin.com/in/prabhat-patel-255432202" target="_blank" className="bg-white/40 px-6 py-3 rounded-2xl border border-white/60 hover:bg-white/60 transition-all shadow-sm">LinkedIn</a>
-          <a href="#" className="text-primary/60 hover:text-primary transition-all">Back to Top ↑</a>
+          <button 
+            onClick={() => scrollToSection("home", 0)}
+            className="text-primary/60 hover:text-primary transition-all cursor-pointer border-none bg-transparent font-bold"
+          >
+            Back to Top ↑
+          </button>
         </div>
       </div>
     </footer>

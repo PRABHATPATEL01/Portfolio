@@ -58,10 +58,21 @@
   --on-surface: #181c23;
 }
 
+html {
+  scroll-padding-top: 80px;
+}
+
 body {
   background-color: var(--surface);
   color: var(--on-surface);
   font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+  transform: translateZ(0); /* Hardware acceleration */
 }
 
 /* Premium Liquid Glass Style - Optimized for Performance */
@@ -72,22 +83,21 @@ body {
         rgba(255, 255, 255, 0.05) 100%
     ) !important;
     
-    /* Reduced blur for better performance */
-    backdrop-filter: blur(10px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(10px) saturate(140%) !important;
+    /* Optimized blur for better scroll performance */
+    backdrop-filter: blur(8px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
     
     border: 1px solid rgba(255, 255, 255, 0.25) !important;
     border-radius: 28px !important;
     
     /* Optimized shadow */
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05), 
-                0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
     
     position: relative;
     overflow: hidden;
-    /* Faster transition for instantaneous feel */
-    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease-out !important;
-    will-change: transform;
+    /* Ultra-fast transition for instantaneous feel */
+    transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s ease-out !important;
+    will-change: transform, opacity;
 }
 
 .liquid-glass:hover {

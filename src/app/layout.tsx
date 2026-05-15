@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${hankenGrotesk.variable} ${inter.variable}`}>
+    <html lang="en" className={`${hankenGrotesk.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-surface text-on-surface font-body antialiased relative overflow-x-hidden">
         {/* Animated Background Blobs */}
         <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">

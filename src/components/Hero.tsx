@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { scrollToSection } from "@/utils/scroll";
 
 
 const appBlocks = [
@@ -106,12 +107,18 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-row gap-4 mt-4 w-full md:w-auto">
-            <a href="#projects" className="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-bold transition-all shadow-subtle flex items-center justify-center flex-1 md:flex-none cursor-pointer">
+            <button 
+              onClick={() => scrollToSection("projects")}
+              className="bg-primary hover:bg-primary-container text-white px-8 py-4 rounded-xl font-bold transition-all shadow-subtle flex items-center justify-center flex-1 md:flex-none cursor-pointer border-none outline-none"
+            >
               View Projects <span className="ml-2">→</span>
-            </a>
-            <a href="#contact" className="bg-white/40 backdrop-blur-md border border-white/60 text-on-surface hover:bg-white/60 px-8 py-4 rounded-xl font-bold transition-all flex-1 md:flex-none flex items-center justify-center cursor-pointer">
+            </button>
+            <button 
+              onClick={() => scrollToSection("contact")}
+              className="bg-white/40 backdrop-blur-md border border-white/60 text-on-surface hover:bg-white/60 px-8 py-4 rounded-xl font-bold transition-all flex-1 md:flex-none flex items-center justify-center cursor-pointer"
+            >
               Contact Me
-            </a>
+            </button>
           </div>
 
           <div className="flex items-center gap-4 mt-8">
