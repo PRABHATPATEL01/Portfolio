@@ -1,179 +1,114 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    title: "Educational Suite",
+    client: "Edutainment Adventures",
+    category: "Learning & Kids",
+    stats: "500k+ Downloads",
+    color: "from-blue-400 to-indigo-500",
+    icon: "🎨"
+  },
+  {
+    title: "Utility Toolbox",
+    client: "LYTBLB Technology",
+    category: "Productivity",
+    stats: "Top 100 Category",
+    color: "from-purple-400 to-pink-500",
+    icon: "🔧"
+  },
+  {
+    title: "Financial Tracker",
+    client: "Personal Portfolio",
+    category: "Finance",
+    stats: "StoreKit 2 Mastery",
+    color: "from-emerald-400 to-teal-500",
+    icon: "💰"
+  },
+  {
+    title: "AR Furniture Pro",
+    client: "Architecture Case Study",
+    category: "AR / Design",
+    stats: "ARKit / SceneKit",
+    color: "from-orange-400 to-red-500",
+    icon: "🕶️"
+  }
+];
+
 export default function FeaturedWork() {
-  const apps = [
-    {
-      name: "All Meat Recipes",
-      desc: "Scalable architecture handling complex query filtering for thousands of data points.",
-      link: "https://apps.apple.com/us/app/all-meat-recipes/id6760544693",
-      tech: "Firestore",
-      color: "bg-[#f2e6e6]",
-      border: "border-red-100",
-      innerBg: "bg-red-800/20",
-      image: "https://images.unsplash.com/photo-1603048297172-c92544798d5e?auto=format&fit=crop&q=80&w=300"
-    },
-    {
-      name: "Mediterranean Diet",
-      desc: "Comprehensive meal planning with robust data synchronization and offline support.",
-      link: "https://apps.apple.com/us/app/all-mediterranean-diet-recipes/id6759240093",
-      tech: "Core Data",
-      color: "bg-[#e6f2e8]",
-      border: "border-green-100",
-      innerBg: "bg-green-800/20",
-      image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=300"
-    },
-    {
-      name: "Anti Inflammatory",
-      desc: "Performance optimized recipe delivery using On-Demand Resources (ODR).",
-      link: "https://apps.apple.com/us/app/anti-inflammatory-diet-recipe/id6760448837",
-      tech: "ODR",
-      color: "bg-[#f2efe6]",
-      border: "border-yellow-100",
-      innerBg: "bg-yellow-800/20",
-      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=300"
-    },
-    {
-      name: "African Recipes",
-      desc: "A fully offline-capable experience built with custom caching solutions.",
-      link: "https://apps.apple.com/us/app/african-recipes-offline-food/id6761056277",
-      tech: "Kingfisher",
-      color: "bg-[#f2ebe6]",
-      border: "border-orange-100",
-      innerBg: "bg-orange-800/20",
-      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=300"
-    },
-    {
-      name: "PCOS Diet Recipes",
-      desc: "Health-focused app featuring a tailored UI and interactive meal trackers.",
-      link: "https://apps.apple.com/us/app/pcos-diet-recipes/id6760650879",
-      tech: "SwiftUI",
-      color: "bg-[#f2e6ee]",
-      border: "border-pink-100",
-      innerBg: "bg-pink-800/20",
-      image: "https://images.unsplash.com/photo-1498837167922-41c53bbfcd2d?auto=format&fit=crop&q=80&w=300"
-    },
-    {
-      name: "Keto Diet: Meal Plan",
-      desc: "Advanced monetization integration with AdMob and premium subscription walls.",
-      link: "https://apps.apple.com/us/app/keto-diet-recipes-meal-plan/id6759555140",
-      tech: "StoreKit 2",
-      color: "bg-[#e6ebf2]",
-      border: "border-blue-100",
-      innerBg: "bg-blue-800/20",
-      image: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&q=80&w=300"
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
     }
-  ];
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
+  };
 
   return (
-    <section id="projects" className="px-6 md:px-10 lg:px-20 py-24 bg-surface max-w-7xl mx-auto w-full scroll-mt-24">
-      <div className="flex flex-col gap-4 max-w-2xl mb-16">
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-on-surface">Live Production Projects</h2>
-        <p className="text-on-surface-variant text-lg">
-          Deployed 10+ unique applications, managing full architecture and implementation. Here is the featured portfolio of recipe apps published by Edutainment Adventures Pvt Ltd.
-        </p>
-      </div>
-
-      <div className="mb-20">
-        <div className="flex items-center gap-3 mb-8">
-          <span className="text-primary text-xl">💼 </span>
-          <h3 className="font-display text-2xl font-bold text-on-surface">Edutainment Adventures Pvt Ltd</h3>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Salad Recipes */}
-          <div className="card-level-1 p-6 flex flex-col gap-6">
-            <div className="bg-[#e9f2eb] rounded-2xl h-80 w-full overflow-hidden flex items-center justify-center relative">
-               <div className="w-48 h-[90%] bg-[#1a2e21] rounded-t-3xl border-8 border-[#0f1f14] shadow-2xl relative translate-y-8 flex flex-col">
-                  <div className="absolute inset-x-0 top-6 bottom-0 bg-[#f9faf9] rounded-t-xl flex flex-col gap-3 p-4">
-                     <div className="h-32 w-full rounded-lg bg-[url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=300')] bg-cover"></div>
-                     <div className="h-4 bg-gray-200 rounded w-full mt-2"></div>
-                     <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                  </div>
-               </div>
-            </div>
-            <div>
-              <div className="flex justify-between items-center mb-2 relative">
-                <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-on-surface-variant">
-                   APP STORE
-                </div>
-                <h4 className="font-display text-2xl font-bold text-on-surface absolute left-1/2 -translate-x-1/2 w-full text-center">Salad Recipes</h4>
-                <a href="https://apps.apple.com/us/app/salad-recipes-healthy-diet/id6755809955" target="_blank" className="text-primary hover:opacity-80 font-bold z-10 relative">↗</a>
-              </div>
-              <p className="text-on-surface-variant text-sm mt-4 text-center md:text-left">
-                Sole Developer - Architecture & Implementation. Premium glassmorphism UI with network-adaptive AdMob integration and enterprise-grade Kingfisher caching.
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
-                {['SwiftUI', 'AdMob', 'Kingfisher', 'Glassmorphism'].map(tech => (
-                  <span key={tech} className="bg-primary-fixed text-primary text-xs px-3 py-1.5 rounded-full font-mono font-bold">{tech}</span>
-                ))}
-              </div>
-            </div>
+    <section id="projects" className="px-6 md:px-10 lg:px-20 py-24 bg-transparent max-w-7xl mx-auto w-full scroll-mt-24">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
+      >
+        <div className="max-w-2xl">
+          <div className="text-primary font-bold text-xs tracking-widest flex items-center gap-2 mb-4 uppercase">
+            <span className="text-lg"></span> FEATURED WORK
           </div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-on-surface mb-4 tracking-tight">Apps that Drive Growth & <br className="hidden md:block" /> Revenue.</h2>
+          <p className="text-on-surface-variant text-lg leading-relaxed">
+            A selection of live applications architected for scalability, high retention, and optimized monetization.
+          </p>
+        </div>
+        <button className="bg-white/40 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/60 shadow-sm font-bold text-on-surface hover:bg-white/60 transition-all flex items-center gap-2 group">
+          View All Projects <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </button>
+      </motion.div>
 
-          {/* Diabetic Diet Recipe */}
-          <div className="card-level-1 p-6 flex flex-col gap-6">
-            <div className="bg-[#f0e8e6] rounded-2xl h-80 w-full overflow-hidden flex items-center justify-center relative">
-              <div className="w-44 h-[90%] bg-[#ffffff] rounded-[32px] border-[10px] border-[#2b1814] shadow-2xl overflow-hidden relative flex flex-col">
-                 <div className="absolute top-0 inset-x-0 h-5 bg-[#2b1814] rounded-b-lg w-20 mx-auto z-10"></div>
-                 <div className="h-1/2 bg-[url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=300')] bg-cover"></div>
-                 <div className="p-4 space-y-2">
-                    <div className="h-3 w-1/2 bg-red-200 rounded"></div>
-                    <div className="h-8 w-full bg-gray-100 rounded-lg"></div>
-                    <div className="h-8 w-full bg-gray-100 rounded-lg"></div>
-                 </div>
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {projects.map((project, idx) => (
+          <motion.div 
+            key={idx} 
+            variants={itemVariants}
+            whileHover={{ y: -10, transition: { duration: 0.2 } }}
+            className="card-level-1 overflow-hidden group cursor-pointer h-full flex flex-col"
+          >
+            <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+               <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+               <span className="text-5xl transform group-hover:scale-110 transition-transform duration-500">{project.icon}</span>
+               
+               {/* Gloss shine effect on hover */}
+               <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+            </div>
+            <div className="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="text-[10px] font-bold text-primary tracking-widest uppercase mb-1">{project.category}</div>
+                <h3 className="font-display font-bold text-xl text-on-surface mb-2">{project.title}</h3>
+                <p className="text-on-surface-variant text-sm mb-4">{project.client}</p>
+              </div>
+              <div className="bg-surface-container-high/50 px-4 py-2 rounded-xl text-xs font-bold text-on-surface flex items-center gap-2 border border-white/40">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                {project.stats}
               </div>
             </div>
-            <div>
-              <div className="flex justify-between items-center mb-2 relative">
-                <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-on-surface-variant">
-                   APP STORE
-                </div>
-                <h4 className="font-display text-2xl font-bold text-on-surface absolute left-1/2 -translate-x-1/2 w-full text-center whitespace-nowrap">Diabetic Diet</h4>
-                <a href="https://apps.apple.com/us/app/diabetic-diet-recipe/id6760650743" target="_blank" className="text-primary hover:opacity-80 font-bold z-10 relative">↗</a>
-              </div>
-              <p className="text-on-surface-variant text-sm mt-4 text-center md:text-left">
-                Built with advanced data management using Firestore Batch Merge. Highly optimized On-Demand Resources (ODR) drastically reduced initial app size.
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
-                {['Firestore', 'ODR', 'UIKit', 'Combine'].map(tech => (
-                  <span key={tech} className="bg-primary-fixed text-primary text-xs px-3 py-1.5 rounded-full font-mono font-bold">{tech}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* More Apps */}
-      <div>
-        <div className="flex items-center gap-3 mb-8">
-          <span className="text-primary text-xl">🚀 </span>
-          <h3 className="font-display text-2xl font-bold text-on-surface">More From Edutainment Adventures</h3>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {apps.map((app, index) => (
-            <div key={index} className="card-level-1 p-4 pb-6 flex flex-col gap-4">
-              <div className={`${app.color} rounded-xl h-40 w-full overflow-hidden flex items-end justify-center relative`}>
-                 <div className={`w-[85%] h-[85%] bg-white rounded-t-xl shadow-xl flex flex-col overflow-hidden border ${app.border}`}>
-                    <div className="h-20 w-full bg-gray-100" style={{backgroundImage: `url(${app.image})`, backgroundSize: 'cover'}}></div>
-                    <div className="p-3 flex flex-col gap-1.5">
-                       <div className={`h-2 w-3/4 ${app.innerBg} rounded-sm`}></div>
-                       <div className="h-2 w-1/2 bg-gray-200 rounded-sm"></div>
-                    </div>
-                 </div>
-              </div>
-              <div className="flex-1 flex flex-col">
-                <div className="text-[10px] font-bold tracking-widest text-on-surface-variant mb-1"> LIVE PRODUCTION</div>
-                <h4 className="font-display text-lg font-bold text-on-surface mb-1">{app.name}</h4>
-                <p className="text-on-surface-variant text-xs mb-4 flex-1">{app.desc}</p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="bg-primary-fixed text-primary text-[10px] px-2 py-1.5 rounded-md font-mono font-bold uppercase inline-block">{app.tech}</span>
-                  <a href={app.link} target="_blank" className="text-primary hover:underline text-xs font-bold">App Store ↗</a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

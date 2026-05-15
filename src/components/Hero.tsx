@@ -4,21 +4,34 @@ import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 const appBlocks = [
-  // Original squares
-  { id: 1, name: "Xcode", icon: "🛠️", color: "bg-blue-500", size: "w-20 h-20", x: 20, y: 20, shape: "square" },
-  { id: 2, name: "Firebase", icon: "🔥", color: "bg-orange-500", size: "w-16 h-16", x: 120, y: 50, shape: "square" },
-  { id: 3, name: "SwiftUI", icon: "🎨", color: "bg-indigo-500", size: "w-24 h-24", x: 40, y: 150, shape: "square" },
-  { id: 4, name: "Swift", icon: "🦅", color: "bg-orange-600", size: "w-16 h-16", x: 180, y: 180, shape: "square" },
-  { id: 5, name: "CoreData", icon: "🗄️", color: "bg-gray-700", size: "w-20 h-20", x: 30, y: 300, shape: "square" },
-  { id: 6, name: "SwiftData", icon: "💾", color: "bg-blue-600", size: "w-[72px] h-[72px]", x: 150, y: 320, shape: "square" },
-  { id: 7, name: "Core ML", icon: "🧠", color: "bg-purple-600", size: "w-20 h-20", x: 100, y: 420, shape: "square" },
-  { id: 8, name: "MapKit", icon: "🗺️", color: "bg-green-600", size: "w-16 h-16", x: 20, y: 440, shape: "square" },
-  { id: 9, name: "ARKit", icon: "🕶️", color: "bg-teal-500", size: "w-16 h-16", x: 200, y: 400, shape: "square" },
+  // Widgets (Medium size)
+  { 
+    id: 1, 
+    type: "widget-music", 
+    name: "Music", 
+    size: "w-40 h-40", 
+    x: 20, 
+    y: 60 
+  },
+  { 
+    id: 2, 
+    type: "widget-reminders", 
+    name: "Reminders", 
+    size: "w-40 h-40", 
+    x: 180, 
+    y: 60 
+  },
   
-  // Circles
-  { id: 10, name: "SF Symbols", icon: "🔣", color: "bg-cyan-600", size: "w-20 h-20", x: 180, y: 80, shape: "circle" },
-  { id: 11, name: "Apple Dev", icon: "🧑‍💻", color: "bg-slate-600", size: "w-24 h-24", x: 10, y: 220, shape: "circle" },
-  { id: 12, name: "App Store", icon: "📈", color: "bg-sky-500", size: "w-20 h-20", x: 180, y: 520, shape: "circle" },
+  // Icons (Small size)
+  { id: 3, type: "icon", name: "Photos", icon: "🌸", bg: "bg-white/80", x: 20, y: 240 },
+  { id: 4, type: "icon", name: "Games", icon: "🚀", bg: "bg-gray-800/80", x: 105, y: 240 },
+  { id: 5, type: "icon", name: "Podcasts", icon: "🎙️", bg: "bg-purple-100/80", x: 190, y: 240 },
+  { id: 6, type: "icon", name: "FaceTime", icon: "📹", bg: "bg-green-100/80", x: 275, y: 240 },
+  
+  { id: 7, type: "icon", name: "App Store", icon: "🅰️", bg: "bg-blue-500/80", x: 20, y: 330 },
+  { id: 8, type: "icon", name: "Settings", icon: "⚙️", bg: "bg-gray-400/80", x: 105, y: 330 },
+  { id: 9, type: "icon", name: "SwiftUI", icon: "🎨", bg: "bg-indigo-500/80", x: 190, y: 330 },
+  { id: 10, type: "icon", name: "Firebase", icon: "🔥", bg: "bg-orange-500/80", x: 275, y: 330 },
 ];
 
 const orbitingSkills = [
@@ -57,7 +70,6 @@ export default function Hero() {
     setDevice((prev) => {
       const nextDevice = prev === "iphone" ? "ipad" : "iphone";
       
-      // Shuffle positions randomly based on the new device bounds
       setBlockPositions((currentPos) => {
         const newPos = { ...currentPos };
         const isIpad = nextDevice === "ipad";
@@ -89,7 +101,7 @@ export default function Hero() {
             Architecting <br className="hidden md:block" /> <span className="text-primary">Scalable Apps</span> &<br className="hidden md:block" />Revenue Engines.
           </h1>
           <p className="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed mt-2">
-            Performance-driven iOS Developer specializing in Rapid App Scalability and Revenue Optimization. I architect StoreKit 2 IAP systems and Network-Adaptive Ad frameworks, having independently managed and deployed a portfolio of 10+ live applications (including Edutainment Adventures Pvt Ltd).
+            Performance-driven iOS Developer specializing in Rapid App Scalability and Revenue Optimization. I architect StoreKit 2 IAP systems and Network-Adaptive Ad frameworks, having independently managed and deployed a portfolio of 10+ live applications.
           </p>
           
           <div className="flex flex-row gap-4 mt-4 w-full md:w-auto">
@@ -146,7 +158,7 @@ export default function Hero() {
             );
           })}
 
-          {/* Ambient Glowing Orbs behind the phone for Glassmorphism Effect */}
+          {/* Ambient Glowing Orbs */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-10 pointer-events-none">
             <motion.div 
                animate={{ rotate: 360, scale: [1, 1.2, 1] }} 
@@ -157,11 +169,6 @@ export default function Hero() {
                animate={{ rotate: -360, scale: [1, 1.5, 1] }} 
                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                className="absolute bottom-[20%] right-[20%] w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-[80px] opacity-60" 
-            />
-            <motion.div 
-               animate={{ scale: [1, 1.3, 1] }} 
-               transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-50" 
             />
           </div>
 
@@ -174,73 +181,110 @@ export default function Hero() {
           >
             <motion.div
               animate={{ 
-                width: device === "iphone" ? 320 : 540, 
-                height: device === "iphone" ? 650 : 720,
-                borderRadius: device === "iphone" ? 44 : 24
+                width: device === "iphone" ? 360 : 560, 
+                height: device === "iphone" ? 740 : 780,
+                borderRadius: device === "iphone" ? 54 : 32
               }}
               transition={{ type: "spring", stiffness: 60, damping: 15 }}
-              className="border-[2px] border-white/60 bg-white/20 backdrop-blur-2xl relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1),inset_0_0_20px_rgba(255,255,255,0.5)] flex flex-col"
+              className="border-[2px] border-white/60 bg-black relative overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(255,255,255,0.1)] flex flex-col"
             >
-               {/* iPhone 15 Dynamic Island / iPad Camera */}
+               {/* Phone Wallpaper */}
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center opacity-80 mix-blend-screen scale-105 blur-[2px]" />
+               
+               {/* iPhone 15 Dynamic Island */}
                <motion.div 
                  animate={{
-                   width: device === "iphone" ? 100 : 8,
-                   height: device === "iphone" ? 30 : 8,
-                   borderRadius: device === "iphone" ? 20 : 8,
-                   top: device === "iphone" ? 12 : 12,
+                   width: device === "iphone" ? 120 : 10,
+                   height: device === "iphone" ? 34 : 10,
+                   borderRadius: 20,
+                   top: 14,
                  }}
-                 className="absolute inset-x-0 mx-auto bg-black/60 backdrop-blur-md z-50 pointer-events-none shadow-inner border border-white/10"
+                 className="absolute inset-x-0 mx-auto bg-black z-50 pointer-events-none shadow-xl border border-white/5"
                />
                
-               {/* Screen Content - Liquid Glass Physics Box */}
+               {/* Screen Content */}
                <div 
-                 className="flex-1 bg-transparent relative overflow-hidden p-4 pt-12"
+                 className="flex-1 bg-transparent relative overflow-hidden p-6 pt-16"
                  ref={phoneRef}
                >
-                  <div className="text-white/40 text-[10px] font-mono tracking-widest text-center mb-2 uppercase pointer-events-none">Interactive Sandbox</div>
-                  
-
                   {appBlocks.map((block) => {
                      const targetX = blockPositions[block.id]?.x || block.x;
                      const targetY = blockPositions[block.id]?.y || block.y;
 
+                     if (block.type === "widget-music") {
+                       return (
+                         <motion.div
+                           key={block.id}
+                           drag
+                           dragConstraints={phoneRef}
+                           initial={{ x: block.x, y: block.y }}
+                           animate={{ x: targetX, y: targetY }}
+                           className={`${block.size} absolute bg-white/20 backdrop-blur-xl rounded-[28px] border border-white/30 shadow-2xl p-4 flex flex-col justify-between group/widget cursor-grab active:cursor-grabbing`}
+                         >
+                            <div className="flex justify-between items-start">
+                               <div className="w-12 h-12 bg-white rounded-lg overflow-hidden shadow-sm">
+                                  <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5e?auto=format&fit=crop&q=80&w=100" alt="Album" className="w-full h-full object-cover" />
+                               </div>
+                               <span className="text-white text-xl">🎵</span>
+                            </div>
+                            <div>
+                               <h4 className="text-white font-bold text-sm leading-tight">Today's Hits</h4>
+                               <p className="text-white/60 text-[10px]">Apple Music Hits</p>
+                            </div>
+                            <button className="bg-white/90 py-1.5 rounded-full text-black text-[10px] font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform">
+                               <span>▶</span> Play
+                            </button>
+                         </motion.div>
+                       );
+                     }
+
+                     if (block.type === "widget-reminders") {
+                        return (
+                          <motion.div
+                            key={block.id}
+                            drag
+                            dragConstraints={phoneRef}
+                            initial={{ x: block.x, y: block.y }}
+                            animate={{ x: targetX, y: targetY }}
+                            className={`${block.size} absolute bg-white/20 backdrop-blur-xl rounded-[28px] border border-white/30 shadow-2xl p-4 flex flex-col cursor-grab active:cursor-grabbing`}
+                          >
+                             <div className="flex justify-between items-center mb-3">
+                                <h4 className="text-white font-bold text-sm">Reminders</h4>
+                                <span className="text-white font-bold text-lg">3</span>
+                             </div>
+                             <div className="flex flex-col gap-2.5">
+                                {['Pick up contact...', 'Order plant food', 'Water Monstera'].map((task, i) => (
+                                   <div key={i} className="flex items-center gap-2">
+                                      <div className="w-3.5 h-3.5 rounded-full border border-white/40" />
+                                      <span className="text-white/80 text-[10px] truncate">{task}</span>
+                                   </div>
+                                ))}
+                             </div>
+                          </motion.div>
+                        );
+                     }
+
                      return (
                         <motion.div
                           key={block.id}
-                          onClick={(e) => e.stopPropagation()}
                           drag
                           dragConstraints={phoneRef}
-                          dragElastic={0.6}
-                          dragMomentum={true}
-                          whileHover={{ scale: 1.05 }}
-                          whileDrag={{ scale: 1.1, zIndex: 100 }}
+                          whileHover={{ y: -5 }}
                           initial={{ x: block.x, y: block.y }}
-                          animate={{ 
-                            x: targetX,
-                            y: [targetY, targetY - 10, targetY],
-                          }}
-                          transition={{
-                            duration: 3 + Math.random() * 2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            x: { type: "spring", stiffness: 50, damping: 15 }
-                          }}
-                          className={`absolute ${block.size} ${block.color} ${block.shape === 'circle' ? 'rounded-full' : 'rounded-2xl'} shadow-xl flex flex-col items-center justify-center cursor-grab active:cursor-grabbing border-2 border-white/20 overflow-hidden`}
+                          animate={{ x: targetX, y: targetY }}
+                          className="absolute flex flex-col items-center gap-1.5 cursor-grab active:cursor-grabbing"
                         >
-                          <span className={`${block.shape === 'circle' ? 'text-xl' : 'text-2xl'} mb-1`}>{block.icon}</span>
-                          <span className="text-[9px] font-bold text-white tracking-wide text-center leading-tight px-1">{block.name}</span>
+                           <div className={`${block.bg} w-14 h-14 rounded-[14px] flex items-center justify-center text-2xl shadow-lg border border-white/10 backdrop-blur-md`}>
+                              {block.icon}
+                           </div>
+                           <span className="text-white text-[10px] font-medium tracking-wide">{block.name}</span>
                         </motion.div>
                      );
                   })}
                </div>
                
                {/* Home Indicator */}
-               <motion.div 
-                 animate={{
-                   width: device === "iphone" ? 96 : 160,
-                 }}
-                 className="absolute bottom-2 inset-x-0 h-1 bg-white/40 rounded-full mx-auto z-50 pointer-events-none"
-               />
+               <div className="absolute bottom-2 inset-x-0 h-1.5 w-32 bg-white/40 rounded-full mx-auto z-50 pointer-events-none" />
             </motion.div>
           </motion.div>
 

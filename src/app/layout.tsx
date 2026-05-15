@@ -24,8 +24,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`scroll-smooth ${hankenGrotesk.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-surface text-on-surface font-body antialiased">
-        {children}
+      <body className="min-h-screen bg-surface text-on-surface font-body antialiased relative overflow-x-hidden">
+        {/* Animated Background Blobs */}
+        <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-blue-100/40 blur-[120px] animate-blob-1 mix-blend-multiply"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-purple-100/30 blur-[150px] animate-blob-2 mix-blend-multiply"></div>
+        </div>
+        
+        {/* Global Noise Texture */}
+        <div className="bg-noise"></div>
+
+        <div className="relative z-0">
+          {children}
+        </div>
       </body>
     </html>
   );

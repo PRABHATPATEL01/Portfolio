@@ -1,131 +1,146 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Expertise() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section id="skills" className="px-6 md:px-10 lg:px-20 py-24 bg-surface max-w-7xl mx-auto w-full border-t border-outline-variant/30 scroll-mt-24">
-      <div className="mb-16 max-w-2xl">
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-on-surface mb-4">Technical Expertise & Core Skills</h2>
-        <p className="text-on-surface-variant text-lg">
-          Expert in high-performance iOS UI/UX, advanced monetization engineering, and scalable backend integrations.
+    <section id="expertise" className="px-6 md:px-10 lg:px-20 py-24 max-w-7xl mx-auto w-full scroll-mt-24">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-16"
+      >
+        <div className="text-primary font-bold text-xs tracking-widest flex items-center gap-2 mb-4 uppercase">
+          <span className="text-lg"></span> MY EXPERTISE
+        </div>
+        <h2 className="font-display text-4xl md:text-5xl font-bold text-on-surface mb-4 tracking-tight">Crafting High-Performance <br className="hidden md:block" /> iOS Experiences.</h2>
+        <p className="text-on-surface-variant text-lg max-w-3xl leading-relaxed">
+          Expert in high-performance iOS UI/UX, advanced monetization engineering, and scalable backend integrations. I architect StoreKit 2 IAP systems and Network-Adaptive Ad frameworks.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        {/* Core iOS */}
-        <div className="md:col-span-2 card-level-1 p-8 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-3 mb-6 text-primary font-display font-bold text-xl">
-              <span className="text-2xl"> 📱</span> iOS Development Core
-            </div>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {['Swift', 'SwiftUI', 'UIKit', 'Core Data', 'Combine', 'Multi-threading (GCD/Operations)'].map(skill => (
-                <span key={skill} className="bg-primary-fixed text-primary px-4 py-2 rounded-full font-mono text-sm font-bold">{skill}</span>
-              ))}
-            </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Technical Mastery */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center gap-3 mb-8 text-on-surface-variant font-display font-bold text-xl">
+            <span className="text-primary">🛠️</span> Core Proficiencies
           </div>
-          <div className="h-48 rounded-xl bg-[#2a303c] overflow-hidden relative shadow-inner">
-             {/* Fake code block image */}
-             <div className="absolute inset-0 bg-[#1e232d] p-6 font-mono text-xs md:text-sm text-blue-300/80 leading-relaxed opacity-80">
-                <span className="text-[#c678dd]">import</span> <span className="text-[#e5c07b]">StoreKit</span><br/><br/>
-                <span className="text-[#c678dd]">final class</span> <span className="text-[#e5c07b]">StoreKitManager</span> {'{'}<br/>
-                &nbsp;&nbsp;<span className="text-[#c678dd]">func</span> <span className="text-[#61afef]">purchase</span>(_ product: <span className="text-[#e5c07b]">Product</span>) <span className="text-[#c678dd]">async throws</span> -&gt; <span className="text-[#e5c07b]">Transaction</span>? {'{'}<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">let</span> result = <span className="text-[#c678dd]">try async</span> product.<span className="text-[#61afef]">purchase</span>()<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">switch</span> result {'{'}<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">case</span> .<span className="text-[#d19a66]">success</span>(<span className="text-[#c678dd]">let</span> verification):<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">return try</span> <span className="text-[#61afef]">checkVerified</span>(verification)<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">case</span> .<span className="text-[#d19a66]">userCancelled</span>, .<span className="text-[#d19a66]">pending</span>:<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">return nil</span><br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;@unknown <span className="text-[#c678dd]">default</span>:<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#c678dd]">return nil</span><br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{'}'}<br/>
-                &nbsp;&nbsp;{'}'}<br/>
-                {'}'}
-             </div>
-             <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#1e232d] to-transparent"></div>
-          </div>
-        </div>
-
-        {/* Monetization & Ads */}
-        <div className="card-level-1 p-8">
-          <div className="flex items-center gap-3 mb-8 text-on-surface-variant font-display font-bold text-lg">
-            <span>💰</span> Monetization & Ads
-          </div>
-          <div className="flex flex-col gap-6">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          >
             {[
-              { name: 'StoreKit 2', level: 'IAP/Subs' },
-              { name: 'Google AdMob', level: 'Expert' },
-              { name: 'Stripe', level: 'Integration' },
-              { name: 'Adaptive UI', level: 'Ads Design' }
-            ].map(arch => (
-              <div key={arch.name} className="flex justify-between items-center pb-4 border-b border-outline-variant/20 last:border-0 last:pb-0">
-                <span className="font-bold text-on-surface">{arch.name}</span>
-                <span className="bg-surface-container-high text-on-surface-variant text-[10px] uppercase tracking-wider px-2 py-1.5 rounded-md font-bold">{arch.level}</span>
-              </div>
+              { title: 'Swift & SwiftUI', desc: 'Modern reactive UI development with state management mastery.', icon: '⚡' },
+              { title: 'Modular Architecture', desc: 'Designing decoupled, testable, and reusable code modules.', icon: '🧩' },
+              { title: 'StoreKit 2 / IAP', desc: 'Complex monetization systems with multi-offer logic.', icon: '💰' },
+              { title: 'Networking & API', desc: 'Robust REST/GraphQL integration with custom caching.', icon: '🌐' }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={itemVariants}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="card-level-1 p-6 flex flex-col gap-3 group cursor-default"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-on-surface">{item.title}</h3>
+                <p className="text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Back-end / Cloud */}
-        <div className="card-level-1 p-8 flex flex-col gap-4">
-          <div className="flex items-center gap-3 mb-4 text-on-surface-variant font-display font-bold text-lg">
-            <span>🔥</span> Advanced Backend
+        {/* Specialized Tools */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center gap-3 mb-8 text-on-surface-variant font-display font-bold text-xl">
+            <span className="text-primary">🚀</span> Ecosystem & Tools
           </div>
-          {[
-            { icon: '🗄️', name: 'Firestore (Batch/Merge)' },
-            { icon: '📊', name: 'Analytics/Crashlytics' },
-            { icon: '⚙️', name: 'Remote Config & Auth' }
-          ].map(item => (
-            <div key={item.name} className="flex items-center gap-4 bg-surface-container rounded-xl p-4 font-bold text-on-surface border border-white">
-              <span className="text-xl">{item.icon}</span> {item.name}
-            </div>
-          ))}
-        </div>
-
-        {/* Infrastructure & UI */}
-        <div className="md:col-span-2 card-level-1 p-8">
-          <div className="flex items-center gap-3 mb-8 text-on-surface-variant font-display font-bold text-lg">
-            <span>✨</span> Infrastructure & High-Performance UI
-          </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             {[
-              { name: 'Glassmorphism Design' },
-              { name: 'Kingfisher / PDF Caching' },
-              { name: 'On-Demand Resources (ODR)' },
-              { name: 'App Store Connect' },
+              { name: 'Core Data / SwiftData' },
+              { name: 'Firebase / Firestore' },
+              { name: 'Core ML / ARKit' },
+              { name: 'Unit & UI Testing' },
+              { name: 'MapKit / AVFoundation' },
+              { name: 'Combine / Async-Await' },
+              { name: 'StoreKit Testing' },
               { name: 'CI/CD Basics' },
               { name: 'CocoaPods / Git' }
-            ].map(tool => (
-               <div key={tool.name} className="flex items-center gap-2 bg-surface-container px-4 py-3 rounded-lg border border-white shadow-sm font-medium text-on-surface-variant whitespace-nowrap">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div> {tool.name}
-               </div>
+            ].map((tool, idx) => (
+              <motion.div 
+                key={tool.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.6)" }}
+                className="flex items-center gap-2 bg-white/40 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/60 shadow-sm font-medium text-on-surface-variant whitespace-nowrap cursor-default"
+              >
+                <div className="w-2 h-2 rounded-full bg-primary/40"></div> {tool.name}
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Education */}
-      <div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mt-20"
+      >
         <div className="flex items-center gap-3 mb-8 text-on-surface-variant font-display font-bold text-xl">
           <span className="text-primary">🎓</span> Education
         </div>
-        <div className="flex flex-col gap-6">
-          <div className="card-level-1 p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="flex gap-6 items-start">
-              <div className="w-14 h-14 rounded-full bg-primary-fixed text-primary flex items-center justify-center text-2xl shrink-0">
-                📚
-              </div>
-              <div>
-                <h4 className="font-display font-bold text-xl text-on-surface mb-1">Bachelor of Technology in Information Technology</h4>
-                <p className="text-on-surface-variant mb-4">Dr. A.P.J. Abdul Kalam Technical University, Lucknow, India</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-surface-container-high text-on-surface-variant text-xs px-3 py-1.5 rounded-md font-bold">CGPA: 8.2/10.0</span>
-                </div>
-              </div>
+        <div className="card-level-1 p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-xl transition-all hover:scale-[1.01]">
+          <div className="flex gap-6 items-start">
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl shrink-0">
+              📚
             </div>
-            <div className="bg-surface-container-high text-on-surface-variant px-5 py-2.5 rounded-lg font-bold text-sm shrink-0 whitespace-nowrap self-start md:self-auto border border-white">
-              2020 — 2024
+            <div>
+              <h4 className="font-display font-bold text-2xl text-on-surface mb-1">Bachelor of Technology in IT</h4>
+              <p className="text-on-surface-variant mb-4 font-medium">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-primary/5 text-primary text-xs px-4 py-2 rounded-full font-bold border border-primary/10">CGPA: 8.2 / 10.0</span>
+              </div>
             </div>
           </div>
+          <div className="bg-white/60 backdrop-blur-sm text-on-surface-variant px-6 py-3 rounded-2xl font-bold text-sm shrink-0 whitespace-nowrap self-start md:self-auto border border-white shadow-sm">
+            2020 — 2024
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,131 +1,139 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function CaseStudy() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
-    <section id="experience" className="px-6 md:px-10 lg:px-20 py-24 bg-surface max-w-7xl mx-auto w-full scroll-mt-24">
-      <div className="mb-12">
+    <section id="experience" className="px-6 md:px-10 lg:px-20 py-24 max-w-7xl mx-auto w-full scroll-mt-24">
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-12"
+      >
         <div className="text-primary font-bold text-xs tracking-widest flex items-center gap-2 mb-4 uppercase">
           <span className="text-lg"></span> ARCHITECTURE CASE STUDY
         </div>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-on-surface mb-4">Scaling a Portfolio of 10+ iOS Applications</h2>
+        <h2 className="font-display text-4xl md:text-5xl font-bold text-on-surface mb-4 tracking-tight">Scaling a Portfolio of 10+ iOS Applications</h2>
         <p className="text-on-surface-variant text-lg max-w-3xl leading-relaxed">
-          A deep dive into the modular transformation and end-to-end customization of core codebases to deploy dozens of unique, highly-monetized applications published under Edutainment Adventures Pvt Ltd and LYTBLB Technology.
+          A deep dive into the modular transformation and end-to-end customization of core codebases to deploy dozens of unique, highly-monetized applications.
         </p>
-      </div>
+      </motion.div>
 
-      {/* Main Hero Image */}
-      <div className="w-full h-80 md:h-[450px] bg-gradient-to-br from-blue-50 to-indigo-50 rounded-[32px] overflow-hidden mb-16 relative flex items-center justify-center border border-outline-variant/30">
-         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200')] bg-cover opacity-10 mix-blend-multiply"></div>
-         {/* A beautiful abstract representation of many apps */}
-         <div className="relative z-10 w-full max-w-4xl h-full flex items-center justify-center overflow-hidden">
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 w-[120%] px-8 opacity-80 transform -rotate-6 scale-110">
-               {[...Array(15)].map((_, i) => (
-                  <div key={i} className={`aspect-square bg-white rounded-2xl shadow-xl border border-gray-100 flex items-center justify-center overflow-hidden animate-pulse`} style={{ animationDelay: `${i * 150}ms` }}>
-                     <div className={`w-3/4 h-3/4 rounded-xl ${['bg-blue-100', 'bg-green-100', 'bg-red-100', 'bg-yellow-100', 'bg-purple-100'][i % 5]} flex items-center justify-center`}>
-                        <div className={`w-8 h-8 rounded-full ${['bg-blue-300', 'bg-green-300', 'bg-red-300', 'bg-yellow-300', 'bg-purple-300'][i % 5]}`}></div>
-                     </div>
-                  </div>
-               ))}
-            </div>
-            {/* Center glass overlay */}
-            <div className="absolute inset-0 flex items-center justify-center">
-               <div className="bg-white/70 backdrop-blur-xl border border-white p-8 md:p-12 rounded-3xl shadow-2xl text-center">
-                  <div className="text-5xl md:text-6xl font-display font-bold text-primary mb-2">10+</div>
-                  <div className="text-sm font-bold text-on-surface-variant tracking-widest uppercase">Live Applications</div>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2 flex flex-col gap-12">
-          {/* Challenge */}
-          <div>
-            <h3 className="font-display text-2xl font-bold text-primary mb-6">The Challenge</h3>
-            <div className="card-level-1 p-8 text-on-surface-variant leading-relaxed shadow-sm">
-              Deploying and maintaining 10+ unique applications required a scalable approach to UI themes, database configurations, and monetization logic. Manual deployments were prone to errors, and app sizes were ballooning due to high-resolution assets embedded in the bundles.
-            </div>
-          </div>
-
-          {/* Solution */}
-          <div>
-            <h3 className="font-display text-2xl font-bold text-primary mb-6">The Solution</h3>
-            <p className="text-on-surface-variant leading-relaxed mb-8">
-              I solely managed the modular transformation of the core codebases. By engineering Environment-based Configs, I automated the management of test ads and live environments, effectively reducing deployment errors to zero.
+      {/* Main Glass Illustration Area */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="card-level-1 p-8 md:p-12 mb-16 relative overflow-hidden group"
+      >
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-2">
+            <h3 className="font-display text-3xl font-bold text-on-surface mb-6">The Challenge</h3>
+            <p className="text-on-surface-variant leading-relaxed mb-6">
+              Deploying and maintaining 10+ unique applications required a scalable approach that bypassed redundant development cycles while allowing for deep individual branding and features.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="bg-[#151c24] rounded-3xl aspect-square flex items-center justify-center p-6 overflow-hidden relative shadow-inner">
-                 <div className="text-center z-10">
-                    <div className="text-6xl font-bold text-blue-400 mb-2">100%</div>
-                    <div className="text-sm font-mono text-white/70">Reduction in Deployment Errors</div>
-                 </div>
-                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
-              </div>
-              <div className="bg-[#151c24] rounded-3xl aspect-square flex items-center justify-center p-6 overflow-hidden relative shadow-inner">
-                 <div className="text-center z-10">
-                    <div className="text-6xl font-bold text-green-400 mb-2">10+</div>
-                    <div className="text-sm font-mono text-white/70">Apps Deployed & Customized</div>
-                 </div>
-                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Technical Depth */}
-          <div>
-            <h3 className="font-display text-2xl font-bold text-primary mb-6">Technical Depth</h3>
             <div className="flex flex-col gap-4">
-              <div className="bg-surface-container rounded-2xl p-6 flex gap-4 border border-surface-dim/30">
-                <span className="text-primary mt-1 text-xl">🚀</span>
-                <div>
-                  <h4 className="font-bold text-on-surface mb-2">Adaptive Monetization Framework</h4>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">Implemented custom logic for AdMob (Interstitial, Rewarded, Banner) where UI behavior and loading states adapt in real-time to network connectivity, ensuring a lag-free user experience.</p>
+              {[
+                "Centralized Core Framework",
+                "Dynamic Asset Injection",
+                "Automated Build Pipelines",
+                "Adaptive UI Theming"
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-3 font-bold text-on-surface">
+                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs">✓</div>
+                   {item}
                 </div>
-              </div>
-              <div className="bg-surface-container rounded-2xl p-6 flex gap-4 border border-surface-dim/30">
-                <span className="text-primary mt-1 text-xl">🗄️</span>
-                <div>
-                  <h4 className="font-bold text-on-surface mb-2">Advanced Data Management & Caching</h4>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">Utilized Firestore Batch Merge and complex query filtering for minimal latency. Integrated Kingfisher and a custom PDF-caching layer to reduce data consumption and enable instant loading.</p>
-                </div>
-              </div>
-              <div className="bg-surface-container rounded-2xl p-6 flex gap-4 border border-surface-dim/30">
-                <span className="text-primary mt-1 text-xl">✨</span>
-                <div>
-                  <h4 className="font-bold text-on-surface mb-2">High-Converting "Premium" UI</h4>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">Designed high-converting paywalls and interfaces using Glassmorphism and adaptive layouts, maintaining a consistent 99.9% crash-free rate across the portfolio.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Sidebar Info */}
-        <div className="lg:col-span-1">
-          <div className="card-level-1 p-8 sticky top-24 flex flex-col gap-10">
-            <div>
-              <h4 className="font-display font-bold text-xl text-on-surface mb-4">Core Frameworks</h4>
-              <div className="flex flex-wrap gap-2">
-                {['StoreKit 2', 'AdMob', 'Firestore', 'On-Demand Resources (ODR)', 'Kingfisher', 'SwiftUI', 'UIKit'].map(tech => (
-                  <span key={tech} className="bg-primary-fixed text-primary text-xs px-3 py-1.5 rounded-full font-mono font-bold">{tech}</span>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-display font-bold text-xl text-on-surface mb-2">Role</h4>
-              <p className="text-on-surface-variant text-sm">Software Engineer L2 (iOS)</p>
-            </div>
-            
-            <div>
-              <h4 className="font-display font-bold text-xl text-on-surface mb-2">Company / Publisher</h4>
-              <p className="text-on-surface-variant text-sm">LYTBLB Technology / Edutainment Adventures Pvt Ltd</p>
-            </div>
-            
-            <a href="mailto:prabhatpatel301@gmail.com" className="w-full bg-primary hover:bg-primary-container text-white py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 mt-4 shadow-subtle">
-              Contact for Details
-            </a>
+          <div className="lg:col-span-3">
+             <div className="bg-white/40 backdrop-blur-xl rounded-3xl border border-white/60 p-6 shadow-2xl">
+                <div className="flex items-center justify-between mb-8 border-b border-white/20 pb-4">
+                   <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                      <div className="w-3 h-3 rounded-full bg-green-400" />
+                   </div>
+                   <div className="text-[10px] font-bold text-primary/60 tracking-widest uppercase">System Architecture</div>
+                </div>
+                
+                <div className="space-y-6">
+                   <div className="flex items-center justify-between p-4 bg-primary/10 rounded-2xl border border-primary/20">
+                      <div className="flex items-center gap-4">
+                         <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white text-xl">🏛️</div>
+                         <div>
+                            <div className="text-xs font-bold text-primary">Core Library</div>
+                            <div className="text-[10px] text-primary/60">Logic & Networking</div>
+                         </div>
+                      </div>
+                      <div className="text-[10px] font-bold text-primary">STABLE</div>
+                   </div>
+
+                   <div className="grid grid-cols-2 gap-4">
+                      <div className="p-4 bg-purple-500/10 rounded-2xl border border-purple-500/20 flex flex-col items-center text-center gap-2">
+                         <div className="text-2xl">📦</div>
+                         <div className="text-[10px] font-bold text-purple-600 uppercase">Modular UI</div>
+                      </div>
+                      <div className="p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/20 flex flex-col items-center text-center gap-2">
+                         <div className="text-2xl">⚡</div>
+                         <div className="text-[10px] font-bold text-emerald-600 uppercase">SwiftData</div>
+                      </div>
+                   </div>
+
+                   <div className="p-4 bg-white/60 rounded-2xl border border-white/80 flex items-center justify-center gap-3">
+                      <div className="animate-spin h-4 w-4 border-2 border-primary/30 border-t-primary rounded-full" />
+                      <div className="text-[10px] font-bold text-on-surface-variant">Synchronizing Cloud Assets...</div>
+                   </div>
+                </div>
+             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Results grid */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        {[
+          { label: "Efficiency", value: "85%", desc: "Reduction in code duplication across apps." },
+          { label: "Revenue Growth", value: "2.4x", desc: "Increase in average IAP conversion rates." },
+          { label: "Stability", value: "99.9%", desc: "Crash-free sessions across all deployments." }
+        ].map((stat, idx) => (
+          <motion.div 
+            key={idx} 
+            variants={itemVariants}
+            className="card-level-1 p-8 text-center flex flex-col items-center"
+          >
+            <div className="text-xs font-bold text-primary tracking-widest uppercase mb-2">{stat.label}</div>
+            <div className="text-4xl font-display font-black text-on-surface mb-2">{stat.value}</div>
+            <p className="text-on-surface-variant text-sm leading-relaxed">{stat.desc}</p>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }
